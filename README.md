@@ -6,15 +6,15 @@ Estamos definiendo la idea, [en este hilo de Twitter](https://twitter.com/i/stat
 
 ![CubaPod](https://i9.ytimg.com/vi/yEtsoxkxF_0/mqdefault.jpg?sqp=CKCO5PsF&rs=AOn4CLCtDCl3IfL8bGN0nOLd6fJDO0ixlQ)
 
-Lecciones:
+## Lecciones:
 - [Lección 1](https://youtu.be/yEtsoxkxF_0): Introducción.
 
-Documentación sobre bots de Telegram:
+## Documentación sobre bots de Telegram:
 - [Bots](https://core.telegram.org/bots)
 - [API](https://core.telegram.org/api)
 - [python-telegram-bot](https://python-telegram-bot.readthedocs.io/en/stable)
 
-Entorno de desarrollo:
+## Entorno de desarrollo:
 - [Python](https://www.python.org/downloads)
 - [PyCharm](https://www.jetbrains.com/es-es/pycharm/download)
 - [python-telegram-bot](https://python-telegram-bot.org)

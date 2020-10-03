@@ -18,3 +18,5 @@ Estamos definiendo la idea, [en este hilo de Twitter](https://twitter.com/i/stat
 - [Python](https://www.python.org/downloads)
 - [PyCharm](https://www.jetbrains.com/es-es/pycharm/download)
 - [python-telegram-bot](https://python-telegram-bot.org)
+
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/X8X51FNRV)

@@ -8,6 +8,7 @@ authors = ["Carlos Lugones <contact@lugodev.com>"]
 python = "^3.8"
 python-telegram-bot = "^13.0"
 qrcode = "^6.1"
+pillow = "^7.2.0"
 
 [tool.poetry.dev-dependencies]
 

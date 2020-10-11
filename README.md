@@ -4,8 +4,6 @@ En esta serie de vídeos explico cómo crear un bot de Telegram, desde la idea, 
 
 Estamos definiendo la idea, [en este hilo de Twitter](https://twitter.com/i/status/1311765358387187712).
 
-![Thumbnail](https://i9.ytimg.com/vi/yEtsoxkxF_0/mqdefault.jpg?sqp=CJyq6fsF&rs=AOn4CLBXLllqG-ZuSSkHzBD0KdEBZGffZQ)
-
 ## Lecciones:
 - [Lección 1](https://youtu.be/yEtsoxkxF_0): Introducción.
 

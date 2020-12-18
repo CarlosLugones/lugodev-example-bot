@@ -37,17 +37,6 @@ def qr_callback_handler(update, context):
     return INPUT_TEXT
 
 
-def example_callback_handler(update, context):
-
-    query = update.callback_query
-    query.answer()
-
-    filename = generate_qr('QR de ejemplo')
-    chat = update.callback_query.chat
-
-    send_qr(filename, chat)
-
-
 def generate_qr(text):
 
     filename = text + '.jpg'

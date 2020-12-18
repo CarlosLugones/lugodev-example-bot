@@ -1,7 +1,7 @@
 import os
 import qrcode
-from telegram.ext import Updater, CommandHandler, ConversationHandler, MessageHandler, Filters
-from telegram import ChatAction
+from telegram.ext import Updater, CommandHandler, ConversationHandler, CallbackQueryHandler, MessageHandler, Filters
+from telegram import ChatAction, InlineKeyboardMarkup, InlineKeyboardButton
 
 
 INPUT_TEXT = 0
@@ -9,7 +9,13 @@ INPUT_TEXT = 0
 
 def start(update, context):
 
-    update.message.reply_text('Hola, bienvenido, qué deseas hacer?\n\nUsa /qr para generar un código qr.')
+    update.message.reply_text(
+        text='Hola, bienvenido, qué deseas hacer?\n\nUsa /qr para generar un código qr.',
+        reply_markup=InlineKeyboardMarkup([
+            [InlineKeyboardButton(text='Generar qr', callback_data='qr')],
+            [InlineKeyboardButton(text='Sobre el autor', url='https://lugodev.com')],
+        ])
+    )
 
 
 def qr_command_handler(update, context):
@@ -17,6 +23,29 @@ def qr_command_handler(update, context):
     update.message.reply_text('Envíame el texto para generarte un código QR')
 
     return INPUT_TEXT
+
+
+def qr_callback_handler(update, context):
+
+    query = update.callback_query
+    query.answer()
+
+    query.edit_message_text(
+        text='Envíame el texto para generarte un código QR'
+    )
+
+    return INPUT_TEXT
+
+
+def example_callback_handler(update, context):
+
+    query = update.callback_query
+    query.answer()
+
+    filename = generate_qr('QR de ejemplo')
+    chat = update.callback_query.chat
+
+    send_qr(filename, chat)
 
 
 def generate_qr(text):
@@ -66,7 +95,8 @@ if __name__ == '__main__':
 
     dp.add_handler(ConversationHandler(
         entry_points=[
-            CommandHandler('qr', qr_command_handler)
+            CommandHandler('qr', qr_command_handler),
+            CallbackQueryHandler(pattern='qr', callback=qr_callback_handler)
         ],
 
         states={

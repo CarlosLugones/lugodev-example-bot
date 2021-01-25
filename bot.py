@@ -1,75 +1,56 @@
-import os
-import qrcode
+import pyshorteners
 from telegram.ext import Updater, CommandHandler, ConversationHandler, CallbackQueryHandler, MessageHandler, Filters
 from telegram import ChatAction, InlineKeyboardMarkup, InlineKeyboardButton
 
 
-INPUT_TEXT = 0
+INPUT_URL = 0
 
 
 def start(update, context):
 
     update.message.reply_text(
-        text='Hola, bienvenido, qué deseas hacer?\n\nUsa /qr para generar un código qr.',
+        text='Hola, bienvenido, qué deseas hacer?',
         reply_markup=InlineKeyboardMarkup([
-            [InlineKeyboardButton(text='Generar qr', callback_data='qr')],
-            [InlineKeyboardButton(text='Sobre el autor', url='https://lugodev.com')],
+            [InlineKeyboardButton(text='Acortar URL', callback_data='url')],
         ])
     )
 
 
 def qr_command_handler(update, context):
 
-    update.message.reply_text('Envíame el texto para generarte un código QR')
+    update.message.reply_text('Envíame el texto para generarte un código QR.')
 
-    return INPUT_TEXT
+    return INPUT_URL
 
 
-def qr_callback_handler(update, context):
+def url_callback_handler(update, context):
 
     query = update.callback_query
     query.answer()
 
     query.edit_message_text(
-        text='Envíame el texto para generarte un código QR'
+        text='Envíame un enlace para acortarlo.'
     )
 
-    return INPUT_TEXT
+    return INPUT_URL
 
 
-def generate_qr(text):
+def input_url(update, context):
 
-    filename = text + '.jpg'
+    url = update.message.text
+    chat = update.message.chat
 
-    img = qrcode.make(text)
-    img.save(filename)
-
-    return filename
-
-
-def send_qr(filename, chat):
+    s = pyshorteners.Shortener()
+    short = s.chilpit.short(url)
 
     chat.send_action(
-        action=ChatAction.UPLOAD_PHOTO,
+        action=ChatAction.TYPING,
         timeout=None
     )
 
-    chat.send_photo(
-        photo=open(filename, 'rb')
+    chat.send_message(
+        text=short
     )
-
-    os.unlink(filename)
-
-
-def input_text(update, context):
-
-    text = update.message.text
-
-    filename = generate_qr(text)
-
-    chat = update.message.chat
-
-    send_qr(filename, chat)
 
     return ConversationHandler.END
 
@@ -84,12 +65,11 @@ if __name__ == '__main__':
 
     dp.add_handler(ConversationHandler(
         entry_points=[
-            CommandHandler('qr', qr_command_handler),
-            CallbackQueryHandler(pattern='qr', callback=qr_callback_handler)
+            CallbackQueryHandler(pattern='url', callback=url_callback_handler)
         ],
 
         states={
-            INPUT_TEXT: [MessageHandler(Filters.text, input_text)]
+            INPUT_URL: [MessageHandler(Filters.text, input_url)]
         },
 
         fallbacks=[]

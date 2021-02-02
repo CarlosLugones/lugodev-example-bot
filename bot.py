@@ -1,3 +1,4 @@
+import os
 import pyshorteners
 from telegram.ext import Updater, CommandHandler, ConversationHandler, CallbackQueryHandler, MessageHandler, Filters
 from telegram import ChatAction, InlineKeyboardMarkup, InlineKeyboardButton
@@ -57,7 +58,7 @@ def input_url(update, context):
 
 if __name__ == '__main__':
 
-    updater = Updater(token='YOUR_TOKEN', use_context=True)
+    updater = Updater(token=os.environ['TOKEN'], use_context=True)
 
     dp = updater.dispatcher
 

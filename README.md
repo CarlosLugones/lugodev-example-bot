@@ -9,6 +9,7 @@ Todo comenzó [en este hilo de Twitter](https://twitter.com/i/status/13117653583
 - [Lección 2: Bot para generar códigos QR](https://link.lugodev.com/telegram-bot-clase-2)
 - [Lección 3: Añadir botones a tu bot](https://link.lugodev.com/telegram-bot-clase-3)
 - [Lección 4: Acortar enlaces usando API externa.](https://link.lugodev.com/telegram-bot-clase-4)
+- [Lección 5: Cargar token desde una variable de entorno.](https://lugodev.link/telegram-bot-clase-5)
 
 ## Documentación sobre bots de Telegram:
 - [Bots](https://core.telegram.org/bots)

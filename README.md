@@ -14,6 +14,10 @@ Todo comenzó [en este hilo de Twitter](https://twitter.com/i/status/13117653583
 - [Lección 5: Cargar token desde una variable de entorno](https://youtu.be/LV4C83bloU8)
 - [Lección 6: Reenviar mensajes de un grupo a un canal](https://youtu.be/nQy5B19R8Uw)
 
+## Bonus videos:
+- [Desplegar un bot de Telegram a Heroku fácil y rápido](https://youtu.be/EVDEmIObHn4)
+- [Crea tu bot usando esta plantilla: PTB Django Cookiecutter](https://youtu.be/3mlE6QGyx78)
+
 ## Documentación sobre bots de Telegram:
 - [Bots](https://core.telegram.org/bots)
 - [API](https://core.telegram.org/api)
